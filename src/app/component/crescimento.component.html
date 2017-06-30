@@ -1,9 +1,17 @@
 <div class="row">
+  Altere o nome : <input [(ngModel)]= "nome" placeholder="digite">
+<span class="label label-default">: {{nome}}</span>
 
-    <li *ngFor="let dado of dadosBaby">
-        <span>{{dado.dia}}</span>
-        <span>{{dado.peso}}</span>
-        <span>{{dado.tamanho}}</span>
+
+
+</div>
+
+<div class="row">
+
+    <li *ngFor="let d of dadosBaby">
+        <span>{{d.dia}}</span>
+        <span>{{d.peso}}</span>
+        <span>{{d.tamanho}}</span>
     </li>
 
 </div>
@@ -15,18 +23,27 @@
             <th> Data </th>
             <th> Peso </th>
             <th>Tamanho </th>
-
         </tr>
         <tr *ngFor="let dado of dadosBaby let i = index">
-            <td> {{i}} </td>
-            <td>{{dado.dia}} </td>
-            <td>{{dado.peso}} </td>
-            <td>{{dado.tamanho}} </td>
+            <td><a  (click)="onSelect(dado)"> {{i}}</a> </td>
+            <td> <a (click)="click(dado)">{{dado.dia}}</a> </td>
+            <td> <a (click)="click(dado)">{{dado.peso}}</a> </td>
+            <td> <a (click)="click(dado)">{{dado.tamanho}}</a> </td>
         </tr>
-
-
     </table>
 </div>
+
+<detail-Ultrassom [ultrassom]="selectedUltrassom"> </detail-Ultrassom>
+
+<!--
+<div class="row" *ngIf="selectedUltrassom">
+    <h4>Ultrasom Selecionado</h4>
+    <label> DATA:       {{selectedUltrassom.dia}}       </label>
+    <label> PESO:       {{selectedUltrassom.peso}}      </label>
+    <label> TAMANHO:    {{selectedUltrassom.tamanho}}   </label>
+</div> 
+-->
+
 
 
 <h3 class="first">Basic</h3>
@@ -38,7 +55,7 @@
 
 
 
-<!--
+<!--  
  <div class="row" style="margin-top: 30px">
             <table class="table table-condensed">
                 <tr>
@@ -51,8 +68,8 @@
                  <tr *ngFor= "let habilitacao of habilitacoes | perfiladmin; let i = index">
                         <td> <a (click)="edit(habilitacao)"> {{habilitacao.id | formatNumero}}</a> </td>   
                         <td>{{habilitacao.usu}} </td>                        
-                        <td>{{habilitacao.perf}} </td>
-                        <td>{{habilitacao.dt}} </td>
+                        <td>{{habilitacao.perf}}</td>
+                        <td> {{habilitacao.dt}} </td>
                 </tr>
 
 
