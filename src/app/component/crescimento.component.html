@@ -1,0 +1,61 @@
+<div class="row">
+
+    <li *ngFor="let dado of dadosBaby">
+        <span>{{dado.dia}}</span>
+        <span>{{dado.peso}}</span>
+        <span>{{dado.tamanho}}</span>
+    </li>
+
+</div>
+
+<div class="row" style="margin-top: 30px">
+    <table class="table table-condensed">
+        <tr>
+            <th> ID </th>
+            <th> Data </th>
+            <th> Peso </th>
+            <th>Tamanho </th>
+
+        </tr>
+        <tr *ngFor="let dado of dadosBaby let i = index">
+            <td> {{i}} </td>
+            <td>{{dado.dia}} </td>
+            <td>{{dado.peso}} </td>
+            <td>{{dado.tamanho}} </td>
+        </tr>
+
+
+    </table>
+</div>
+
+
+<h3 class="first">Basic</h3>
+<p-dataTable [value]="dadosBaby">
+    <p-column field="dia" header="dia"></p-column>
+    <p-column field="peso" header="peso"></p-column>
+    <p-column field="tamanho" header="tamanho"></p-column>
+</p-dataTable>
+
+
+
+<!--
+ <div class="row" style="margin-top: 30px">
+            <table class="table table-condensed">
+                <tr>
+                    <th> ID </th>
+                    <th> Nome </th>
+                    <th> Perfil </th>
+                    <th>Data </th>
+                   
+                </tr>
+                 <tr *ngFor= "let habilitacao of habilitacoes | perfiladmin; let i = index">
+                        <td> <a (click)="edit(habilitacao)"> {{habilitacao.id | formatNumero}}</a> </td>   
+                        <td>{{habilitacao.usu}} </td>                        
+                        <td>{{habilitacao.perf}} </td>
+                        <td>{{habilitacao.dt}} </td>
+                </tr>
+
+
+            </table>
+ </div>
+    -->
