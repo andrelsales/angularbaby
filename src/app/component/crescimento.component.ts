@@ -1,17 +1,27 @@
-import { Component, NO_ERRORS_SCHEMA } from "@angular/core";
+import { Component, OnInit } from "@angular/core";
 import { Ultrassom } from "../model/ultrassom";
 import {DetailUltrassom} from "./detailultrassom.component";
-
-
+import { UltrassomService}   from '../service/ultrassom.service';
 
 
 
 @Component({
     selector: 'crescimento',
-    templateUrl: './crescimento.component.html'
+    templateUrl: './crescimento.component.html',
+    providers: [UltrassomService]
 })
 
-export class Crescimento {
+export class Crescimento implements OnInit{
+
+    ngOnInit(): void{
+        
+         this.getUltrassons();
+
+    }
+
+    constructor(private ultrassomService: UltrassomService) { 
+        
+    }
 
     click(ultrassom: Ultrassom): void{
         console.log(ultrassom.dia);
@@ -28,12 +38,11 @@ export class Crescimento {
 
     nome: String = "Livia";
 
+    dadosBaby: Ultrassom[];
 
-    dadosBaby: Ultrassom[] = [
-        { dia: "01/01/2017", peso: 45, tamanho: 4 },
-        { dia: "01/02/2017", peso: 150, tamanho: 10 },
-        { dia: "01/03/2017", peso: 220, tamanho: 12 },
-        { dia: "01/04/2017", peso: 300, tamanho: 15 }
-    ];
+    getUltrassons(): void{
+
+        this.dadosBaby = this.ultrassomService.getUltrassons();
+    }
 
 }
