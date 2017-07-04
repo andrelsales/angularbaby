@@ -13,14 +13,15 @@ import { UltrassomService}   from '../service/ultrassom.service';
 
 export class Crescimento implements OnInit{
 
-    ngOnInit(): void{
-        
-         this.getUltrassons();
+    selectedUltrassom: Ultrassom;
+    nome: String = "Livia";
+    dadosBaby: Ultrassom[];
 
+    ngOnInit(): void{        
+         this.getUltrassons();
     }
 
-    constructor(private ultrassomService: UltrassomService) { 
-        
+    constructor(private ultrassomService: UltrassomService) {         
     }
 
     click(ultrassom: Ultrassom): void{
@@ -32,17 +33,8 @@ export class Crescimento implements OnInit{
         this.selectedUltrassom = ultrassom;
         console.log(this.selectedUltrassom);
     }
-    
-
-    selectedUltrassom: Ultrassom;
-
-    nome: String = "Livia";
-
-    dadosBaby: Ultrassom[];
-
     getUltrassons(): void{
-
         this.dadosBaby = this.ultrassomService.getUltrassons();
     }
 
-}
+ dadosBaby: Ultrassom[];}

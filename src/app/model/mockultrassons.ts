@@ -1,4 +1,5 @@
 import {Ultrassom} from '../model/ultrassom';
+import {Observable} from 'rxjs';
 
 export const ULTRAS: Ultrassom[] = [
         
