@@ -12,6 +12,7 @@ import { EmptyComponent } from "./component/empty.component";
 import { Strollers } from "./component/strollers.component";
 import { Crescimento } from "./component/crescimento.component";
 import {DetailUltrassom} from "./component/detailultrassom.component";
+import {Estudo} from "./component/estudo.component";
 
 import { DataTableModule, SharedModule } from 'primeng/primeng';
 
@@ -27,7 +28,7 @@ import { DataTableModule, SharedModule } from 'primeng/primeng';
     ],
     declarations: [
         AppComponent, NavBAr, MenuComponent, HomeComponent, EmptyComponent, Strollers, Crescimento, 
-        DetailUltrassom
+        DetailUltrassom,Estudo
     ],
     providers: [
     ],
