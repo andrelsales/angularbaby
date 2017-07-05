@@ -1,29 +1,33 @@
 [
-
     {
-        "dia": "01/05/2017",
-        "peso": 122,
-        "tamanho": 9
+        "dia": "13/03/2017",
+        "peso": null,
+        "batimento": 143
     },
     {
-        "dia": "01/06/2017",
-        "peso": 150,
-        "tamanho":15
+        "dia": "05/04/2017",
+        "peso": null,
+        "batimento":158
     },
     {
-        "dia": "21/06/2017",
-        "peso": 170,
-        "tamanho":17
+        "dia": "25/04/2017",
+        "peso": null,
+        "batimento":146
     },
     {
-        "dia": "01/07/2017",
-        "peso": 195,
-        "tamanho":28
+        "dia": "16/05/2017",
+        "peso": 151,
+        "batimento":135
     },
-        {
-        "dia": "01/08/2017",
-        "peso": 200,
-        "tamanho":30
+    {
+        "dia": "08/06/2017",
+        "peso": 310,
+        "batimento":137
+    },
+    {
+        "dia": "23/06/2017",
+        "peso": 395,
+        "batimento":141
     }
 ]
 

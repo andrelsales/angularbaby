@@ -10,13 +10,27 @@ export class UltrassomService{
   
   constructor(private http: Http){}
 
-    getUltrassons(): Observable< Ultrassom[]>{        console.log('entrou servico');
+    getUltrassons(): Observable<Ultrassom[]>{        
+        console.log('entrou servico');
 
-    const tal = (x: number) => 50 * x;
-    console.log(tal(4));
+    // const tal = (x: number) => 50 * x;
+    // console.log(tal(4));
 
-        return ULTRAS;
-
+    return this.http.get('conteudo.json').map(
+        (u: Response) => {
+                 console.log('moises 1');
+                          
+                 return (<any>u.json()).map(
+                     (u: any) => {
+                          console.log(u); 
+                         return new Ultrassom(u.dia,u.peso,u.batimento);
+                     }
+                 )
+                
+               // return (<any>r.json()).map(this.mapToHabilitacao)  // public dia: string, public peso: number, public tamanho: number) {
+            }
+        )
+        //return ULTRAS;
     }
 // this.http.get(myApiUrl)
 //                     .map(res=>res.json())

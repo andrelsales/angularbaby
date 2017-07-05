@@ -22,13 +22,13 @@
             <th> ID </th>
             <th> Data </th>
             <th> Peso </th>
-            <th>Tamanho </th>
+            <th>batimento </th>
         </tr>
         <tr *ngFor="let dado of dadosBaby let i = index">
             <td><a  (click)="onSelect(dado)"> {{i}}</a> </td>
             <td> <a (click)="click(dado)">{{dado.dia}}</a> </td>
             <td> <a (click)="click(dado)">{{dado.peso}}</a> </td>
-            <td> <a (click)="click(dado)">{{dado.tamanho}}</a> </td>
+            <td> <a (click)="click(dado)">{{dado.batimento}}</a> </td>
         </tr>
     </table>
 </div>
@@ -46,11 +46,11 @@
 
 
 
-<h3 class="first">Basic</h3>
+<h3 class="first">Ultrassons </h3>
 <p-dataTable [value]="dadosBaby">
     <p-column field="dia" header="dia"></p-column>
     <p-column field="peso" header="peso"></p-column>
-    <p-column field="tamanho" header="tamanho"></p-column>
+    <p-column field="batimento" header="batimento"></p-column>
 </p-dataTable>
 
 
