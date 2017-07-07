@@ -2,7 +2,7 @@ import {Component} from '@angular/core';
 
 @Component({
     selector:'empty',
-    template: 'vazioooooo'
+    template: 'VAZIOOOO'
 })
 
 export class EmptyComponent{

@@ -18,7 +18,7 @@ export class UltrassomService{
 
     return this.http.get('conteudo.json').map(
         (u: Response) => {
-                 console.log('moises 1');
+       
                           
                  return (<any>u.json()).map(
                      (u: any) => {
