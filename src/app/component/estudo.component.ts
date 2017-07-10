@@ -1,42 +1,43 @@
 import { Component,OnInit } from "@angular/core";
 import { Observable } from "rxjs";
 import {Http, Response} from '@angular/http';
+import {EstudoService} from "../service/estudo.service";
+import {GitUser} from "../model/gituser";
 
 @Component({
     selector: 'estudo',
-    templateUrl: './estudo.component.html'
+    templateUrl: './estudo.component.html',
+    providers: [EstudoService]  
 })
 export class Estudo implements OnInit {
     
-    constructor(private http: Http){}
+    constructor(private http: Http, private estudoSerive : EstudoService){}
 
-    testarMap(): void{
-    this.http.request('https://api.github.com/users').map(
+    dadosGitUser: GitUser[];
 
-        (resposta: Response) => {
-            console.log('Entrou aqui');
-            console.log(resposta);
-        }
-    )
-
-    }
-     testar(): Observable<any[]>{
-         console.log('entrou TESTAR()');
-        return null;
-    }
- 
-
-   
     ngOnInit(): void {
-        
-       console.log('INIT'); 
+       console.log('INIT1 ESTUDO COMPONENTE');
 
-        this.testar();
-        
+       var git1 = this.estudoSerive.listarGit();
+       var git2 = this.estudoSerive.listarGit();
+       this.estudoSerive.listarGit().subscribe(           
+           (r:GitUser[]) => {
+               console.log('AQUI 1');
+               this.dadosGitUser = r;
+               console.log('AQUI 2');
+                }           
+           )
 
-          console.log('INIT2');
+    console.log('SUBSCRIBE ANTES 1');
+       git1.subscribe(
+        () => {console.log('SUBSCRIBE 1')}
+       );
+        console.log('SUBSCRIBE ANTES 2')
+       git2.subscribe(
+        () => {console.log('SUBSCRIBE 2')}
+       )           
+       console.log('INIT2 ESTUDO COMPONENTE');
     }
-
 
     // return this.http.get('conteudo.json').map(
     //     (u: Response) => {
@@ -52,12 +53,18 @@ export class Estudo implements OnInit {
     //            // return (<any>r.json()).map(this.mapToHabilitacao)  // public dia: string, public peso: number, public tamanho: number) {
     //         }
     //     )
-
-
-
-
-
  
 }
 // var requestStream = Rx.Observable.just('https://api.github.com/users');
 // return this.http.get('conteudo.json').map(
+
+/*
+    testarMap(): void{
+        this.http.request('https://api.github.com/users').map(
+
+            (resposta: Response) => {
+                console.log('Entrou aqui');
+                console.log(resposta);
+            }
+        )
+}*/
