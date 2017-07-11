@@ -2,7 +2,8 @@ import { Component, OnInit } from "@angular/core";
 import { Ultrassom } from "../model/ultrassom";
 import {DetailUltrassom} from "./detailultrassom.component";
 import { UltrassomService}   from '../service/ultrassom.service';
-
+import {Header} from 'primeng/primeng';
+import {Footer} from 'primeng/primeng';
 
 
 @Component({
@@ -32,6 +33,14 @@ export class Crescimento implements OnInit{
         
         this.selectedUltrassom = ultrassom;
         console.log(this.selectedUltrassom);
+    }
+    
+    exibirProximo(ultrassom : Ultrassom): void{
+        console.log(ultrassom.id +1);
+        this.ultrassomService.findByIdForEach(ultrassom.id +1).subscribe(
+            (resposta: Ultrassom) => {this.selectedUltrassom = resposta}
+        );
+       
     }
     getUltrassons(): void{
         this.ultrassomService.getUltrassons().subscribe(

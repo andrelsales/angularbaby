@@ -16,6 +16,8 @@ import {Estudo} from "./component/estudo.component";
 
 import { DataTableModule, SharedModule } from 'primeng/primeng';
 
+import { PesoPipe} from './pipe/peso.pipe';
+
 
 @NgModule({
     imports: [
@@ -28,7 +30,7 @@ import { DataTableModule, SharedModule } from 'primeng/primeng';
     ],
     declarations: [
         AppComponent, NavBAr, MenuComponent, HomeComponent, EmptyComponent, Strollers, Crescimento, 
-        DetailUltrassom,Estudo
+        DetailUltrassom,Estudo,PesoPipe
     ],
     providers: [
     ],

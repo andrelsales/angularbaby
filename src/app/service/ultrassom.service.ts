@@ -18,26 +18,65 @@ export class UltrassomService{
                  return (<any>u.json()).map(
                      (u: any) => {
                           console.log(u); 
-                         return new Ultrassom(u.dia,u.peso,u.batimento);
+                         return new Ultrassom(u.id,u.dia,u.peso,u.batimento);
                      }
                  )                
                // return (<any>r.json()).map(this.mapToHabilitacao)  // public dia: string, public peso: number, public tamanho: number) {
             }
         )        
     }
-    
-// this.http.get(myApiUrl)
-//                     .map(res=>res.json())
-//                     .catch(err=>{
-//                        throw new Error(err.message);  
-//                     });    }
+
+    findByIdForEach(id:Number): Observable<Ultrassom>{
+        console.log('ENTROU findByIdForEach')
+       return this.http.get('conteudo.json').map(
+            (r: Response) => {
+                let ultrassom: Ultrassom;                
+                (r.json()).forEach(element => {
+                    if(element.id == id){
+                         console.log('ENT 2')
+                        ultrassom = new Ultrassom(element.id,element.dia,element.peso,element.batimento)
+                    }                    
+                });
+                return ultrassom;
+            }
+        )
+    }
+
+    findyIdFilter(id:Number) : Observable<Ultrassom>{
+        console.log('findyIdFilter');
+           
+
+    return null;
+        
+    }
+
+// function getCountryByCode(code) {
+//   return data.filter(
+//       function(data){ return data.code == code }
+//   );
+// }
 
 
-//  return this.http.get(this.commentsUrl)
-//                 // ...and calling .json() on the response to return data
-//                  .map((res:Response) => res.json())
-//                  //...errors if any
-//                  .catch((error:any) => Observable.throw(error.json().error || 'Server error'));
+/* 
+    findById(id: Number): Observable<Habilitacao>{
+       return this.http.get('content.json').map(
+            (r: Response) => {
+                let habilitacao: Habilitacao;
+                // console.log('entrou');
+                
+                (<any>r.json()).forEach(element => {
+                    if(element.id == id)
+                    {                
+                        habilitacao = new Habilitacao(element.id, element.usu,element.perf,element.dt);
+                    }
+                });               
+
+                return habilitacao;
+            }  
+       
+       )       
+    }*/
+
 
 
 /*    constructor(private http: Http){}

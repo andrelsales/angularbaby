@@ -20,10 +20,9 @@ export class Estudo implements OnInit {
   
       
        this.estudoSerive.listarGit().subscribe(           
-           (r:GitUser[]) => {
-               console.log('OPA 1');
+           (r:GitUser[]) => {              
                this.dadosGitUser = r;
-               console.log('OPA 2');
+               
                 }           
            )
 

@@ -10,7 +10,7 @@
 
     <li *ngFor="let d of dadosBaby">
         <span>{{d.dia}}</span>
-        <span>{{d.peso}}</span>
+        <span>{{d.peso | pesoFormatado}}</span>
         <span>{{d.tamanho}}</span>
     </li>
 
@@ -25,10 +25,10 @@
             <th>batimento </th>
         </tr>
         <tr *ngFor="let dado of dadosBaby let i = index">
-            <td><a  (click)="onSelect(dado)"> {{i}}</a> </td>
-            <td> <a (click)="click(dado)">{{dado.dia}}</a> </td>
-            <td> <a (click)="click(dado)">{{dado.peso}}</a> </td>
-            <td> <a (click)="click(dado)">{{dado.batimento}}</a> </td>
+            <td> <a (click)="onSelect(dado)"> {{dado.id}}</a> </td>
+            <td> <a (click)="onSelect(dado)">{{dado.dia}}</a> </td>
+            <td> <a (click)="onSelect(dado)">{{dado.peso | pesoFormatado}}</a> </td>
+            <td> <a (click)="exibirProximo(dado)">{{dado.batimento}}</a> </td>
         </tr>
     </table>
 </div>
@@ -47,13 +47,20 @@
 
 
 <h3 class="first">Ultrassons </h3>
-<p-dataTable [value]="dadosBaby">
-    <p-column field="dia" header="dia"></p-column>
-    <p-column field="peso" header="peso"></p-column>
-    <p-column field="batimento" header="batimento"></p-column>
+<p-dataTable [value]="dadosBaby" [rows]="10" [paginator]="true">
+    <p-header>Lista de Ultrassons</p-header>
+    <p-footer>Selecione algum da lista</p-footer>
+    <p-column field="dia" header="Dia Nascimento">
+
+    </p-column>
+    <p-column field="peso" header="Peso" [sortable]="true">
+
+    </p-column>
+    
+    <p-column field="batimento" header="Batimento" [sortable]="true" >
+
+    </p-column>
 </p-dataTable>
-
-
 
 <!--  
  <div class="row" style="margin-top: 30px">
@@ -62,8 +69,7 @@
                     <th> ID </th>
                     <th> Nome </th>
                     <th> Perfil </th>
-                    <th>Data </th>
-                   
+                    <th>Data </th>                   
                 </tr>
                  <tr *ngFor= "let habilitacao of habilitacoes | perfiladmin; let i = index">
                         <td> <a (click)="edit(habilitacao)"> {{habilitacao.id | formatNumero}}</a> </td>   
@@ -71,8 +77,6 @@
                         <td>{{habilitacao.perf}}</td>
                         <td> {{habilitacao.dt}} </td>
                 </tr>
-
-
             </table>
  </div>
     -->
