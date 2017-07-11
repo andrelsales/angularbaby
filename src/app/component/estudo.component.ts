@@ -17,26 +17,19 @@ export class Estudo implements OnInit {
 
     ngOnInit(): void {
        console.log('INIT1 ESTUDO COMPONENTE');
-
-       var git1 = this.estudoSerive.listarGit();
-       var git2 = this.estudoSerive.listarGit();
+  
+      
        this.estudoSerive.listarGit().subscribe(           
            (r:GitUser[]) => {
-               console.log('AQUI 1');
+               console.log('OPA 1');
                this.dadosGitUser = r;
-               console.log('AQUI 2');
+               console.log('OPA 2');
                 }           
            )
 
-    console.log('SUBSCRIBE ANTES 1');
-       git1.subscribe(
-        () => {console.log('SUBSCRIBE 1')}
-       );
-        console.log('SUBSCRIBE ANTES 2')
-       git2.subscribe(
-        () => {console.log('SUBSCRIBE 2')}
-       )           
-       console.log('INIT2 ESTUDO COMPONENTE');
+    console.log('INIT2 ESTUDO COMPONENTE');
+
+    
     }
 
     // return this.http.get('conteudo.json').map(

@@ -14,7 +14,7 @@ export class EstudoService{
        return this.http.request('https://api.github.com/users').map(
             (resposta: Response) => {
                 console.log('Entrou MAP');   
-
+                    console.log("TESTANDO" + resposta.json());
                    return resposta.json().map(
                         (h: any) => {
                              console.log('AQUII ' + h.id);
