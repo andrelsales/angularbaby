@@ -20,6 +20,7 @@ export class Crescimento implements OnInit{
     selectedUltrassom: Ultrassom;
     nome: String = "Livia";
     dadosBaby: Ultrassom[];
+    teste: String;
 
     ngOnInit(): void{        
          this.getUltrassons();
@@ -38,14 +39,34 @@ export class Crescimento implements OnInit{
     exibirProximo(ultrassom : Ultrassom): void{
         console.log(ultrassom.id +1);
         this.ultrassomService.findByIdForEach(ultrassom.id +1).subscribe(
-            (resposta: Ultrassom) => {this.selectedUltrassom = resposta}
-        );
-       
+            (resposta: Ultrassom) => {
+                this.selectedUltrassom = resposta;
+                
+            
+            }
+        );       
     }
+
+        
+    exibirProximoFind(ultrassom : Ultrassom): void{
+        console.log("exibirProximoFind");
+        this.ultrassomService.findyIdUsingFind(ultrassom.id +1).subscribe(
+            (resposta: Ultrassom) => {
+                this.selectedUltrassom = resposta;           
+            }
+        );       
+    }
+
+
+
     getUltrassons(): void{
+
         this.ultrassomService.getUltrassons().subscribe(
 
-            (ultrassons: Ultrassom[]) => this.dadosBaby = ultrassons,
+            (ultrassons: Ultrassom[]) => {
+                this.dadosBaby = ultrassons;
+                // this.teste = ultrassons.toString();
+            },
             (err: string) => console.log(`Got error: ${err}`),                    
             () => console.log(`Request completed!`)
 

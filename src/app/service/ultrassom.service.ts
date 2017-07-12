@@ -27,13 +27,14 @@ export class UltrassomService{
     }
 
     findByIdForEach(id:Number): Observable<Ultrassom>{
-        console.log('ENTROU findByIdForEach')
+        console.log('ENTROU findByIdForEach');
        return this.http.get('conteudo.json').map(
             (r: Response) => {
-                let ultrassom: Ultrassom;                
+                let ultrassom: Ultrassom;
+                 console.log('ENT xx');                
                 (r.json()).forEach(element => {
                     if(element.id == id){
-                         console.log('ENT 2')
+                         console.log('ENT 2');
                         ultrassom = new Ultrassom(element.id,element.dia,element.peso,element.batimento)
                     }                    
                 });
@@ -42,13 +43,24 @@ export class UltrassomService{
         )
     }
 
-    findyIdFilter(id:Number) : Observable<Ultrassom>{
-        console.log('findyIdFilter');
-           
+    findyIdUsingFind(id:Number) : Observable<Ultrassom>{
+       
+        console.log('ENTROU findyIdUsingFind');
+        return this.http.get('conteudo.json').map(
+            (r: Response) => {                  
+                   return (r.json()).map(
+                       (listaUltra: Ultrassom[]) =>{
+                           return listaUltra.find(ultra => ultra.id === id)                        
 
-    return null;
-        
+                       }
+                  )
+
+            }
+        ) 
     }
+    
+
+
 
 // function getCountryByCode(code) {
 //   return data.filter(

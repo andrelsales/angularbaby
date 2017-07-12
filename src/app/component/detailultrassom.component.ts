@@ -12,4 +12,7 @@ export class DetailUltrassom{
 @Input()
 ultrassom: Ultrassom;
 
+@Input()
+detalhe: String;
+
 }

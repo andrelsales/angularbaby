@@ -27,13 +27,13 @@
         <tr *ngFor="let dado of dadosBaby let i = index">
             <td> <a (click)="onSelect(dado)"> {{dado.id}}</a> </td>
             <td> <a (click)="onSelect(dado)">{{dado.dia}}</a> </td>
-            <td> <a (click)="onSelect(dado)">{{dado.peso | pesoFormatado}}</a> </td>
+            <td> <a (click)="exibirProximoFind(dado)">{{dado.peso | pesoFormatado}}</a> </td>
             <td> <a (click)="exibirProximo(dado)">{{dado.batimento}}</a> </td>
         </tr>
     </table>
 </div>
 
-<detail-Ultrassom [ultrassom]="selectedUltrassom"> </detail-Ultrassom>
+<detail-Ultrassom [ultrassom]="selectedUltrassom" [detalhe]="teste"> </detail-Ultrassom>
 
 <!--
 <div class="row" *ngIf="selectedUltrassom">
