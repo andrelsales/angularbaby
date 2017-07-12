@@ -43,18 +43,17 @@ export class UltrassomService{
         )
     }
 
-    findyIdUsingFind(id:Number) : Observable<Ultrassom>{
+    findyIdUsingFind(id_Pesquisar:Number) : Observable<Ultrassom>{
        
         console.log('ENTROU findyIdUsingFind');
         return this.http.get('conteudo.json').map(
-            (r: Response) => {                  
-                   return (r.json()).map(
-                       (listaUltra: Ultrassom[]) =>{
-                           return listaUltra.find(ultra => ultra.id === id)                        
-
-                       }
-                  )
-
+            (r: Response) => {           
+                // return r.json().find( valor => valor.id == id );
+                let ultraAchado = r.json().find( valor => valor.id == id_Pesquisar );
+                console.log(ultraAchado);
+                let ultra = new Ultrassom(ultraAchado.id,ultraAchado.dia,ultraAchado.peso,ultraAchado.batimento);
+                return ultra;
+                
             }
         ) 
     }

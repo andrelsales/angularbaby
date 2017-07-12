@@ -4,7 +4,15 @@ import { Pipe, PipeTransform } from '@angular/core';
 export class PesoPipe implements PipeTransform {
 
     transform(peso: string): string {
-        return `${peso} Gramas`;
+        if(peso == null)
+        {
+            return '';
+        }
+        else{
+
+            return `${peso} Gramas`;
+        }
+        
     }
 }
 
