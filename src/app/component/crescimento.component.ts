@@ -67,7 +67,7 @@ export class Crescimento implements OnInit{
                 this.dadosBaby = ultrassons;
                 // this.teste = ultrassons.toString();
             },
-            (err: string) => console.log(`Got error: ${err}`),                    
+            (abc: string) => console.log(`Got error: ${abc}`),                    
             () => console.log(`Request completed!`)
 
         );

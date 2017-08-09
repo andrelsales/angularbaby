@@ -24,6 +24,25 @@ export class EstudoService{
             }
          )            
     }
+
+       listarGitHttpClient(): Observable<GitUser[]> {
+        console.log('entrou listarGit()');
+       return this.http.request('https://api.github.com/users?since=10').map(
+            (resposta: Response) => {
+                console.log('Entrou MAP');   
+                    // console.log("TESTANDO" + resposta.json());
+                   return resposta.json().map(
+                        (h: any) => {
+                            //  console.log('AQUII ' + h.id);                             
+                            return new GitUser(h.login, h.id);                          
+                        }                       
+                    )                
+            }
+         )            
+    }
+
+
+
 }
 
 
